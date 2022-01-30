@@ -3,7 +3,7 @@ import {Subject} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Url} from './domain/Url';
-import {RedutorUrlService} from './app/service/redutor-url.service';
+import {RedutorUrlService} from './service/redutor-url.service';
 import {takeUntil} from 'rxjs/operators';
 
 @Component({

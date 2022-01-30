@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {environment} from '../../../environments/environment';
-import {Url} from '../../domain/Url';
+import {environment} from '../../environments/environment';
+import {Url} from '../domain/Url';
 
 const API_PATH: String  = '/encurtador-rest/api';
 const HTTPS_PREFIX = 'https://';
