@@ -4,8 +4,8 @@ import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Url} from '../domain/Url';
 
-const API_PATH: String  = '/encurtador-rest/api';
-const HTTPS_PREFIX = 'https://';
+const API_PATH = '/encurtador-rest/api';
+const HTTPS_PREFIX = 'https://'
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +25,14 @@ export class RedutorUrlService {
   }
 
   encurtarUrl(urlOriginal: String): Observable<Url> {
-    return this.http.post<Url>(`${this.apiEncurtadorUrl}${API_PATH}`, { urlOriginal });
+    return this.http.post<Url>(`${environment.url_base}${environment.contextPath}${API_PATH}`, { urlOriginal });
   }
 
-  redirecionarUrlOriginal(url: any) {
+  redirecionarUrlOriginal(url: string) {
+    const urlRedirecionar = HTTPS_PREFIX + url;
+    console.log(urlRedirecionar);
+    
+    // const url = `${environment.url_base}${environment.contextPath}${API_PATH}/${idUrl}`;
     // const httpOptions = {
     //   headers: new HttpHeaders({
     //     'Content-Type': 'application/json',
@@ -37,9 +41,11 @@ export class RedutorUrlService {
     //     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
     //   })
     // }
-    window.open(HTTPS_PREFIX + url, "_blank");
+    if (url) {
+      window.open(urlRedirecionar, "_blank");
+    }
     // window.location.href= HTTPS_PREFIX + url;
-    // return this.http.get(`${this.apiEncurtadorUrl}${API_PATH}/${idUrl}`, httpOptions);
+    // return this.http.get(url, httpOptions);
   }
 
 }

@@ -35,7 +35,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onClick(url: string) {
-    console.log(this.urlForm);
+    console.log(url);
     this.validaCampoUrl(this.urlForm);
     if (url) {
       this.urlReduzida = url;
@@ -58,7 +58,8 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  redirecionar(url: String) {
+  redirecionar(url: string) {
+    console.log(url);
     this.service.redirecionarUrlOriginal(url);
   }
 

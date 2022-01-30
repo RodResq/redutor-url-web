@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   contextPath: '/encurtador',
-  url_base: '/encurtador'
+  url_base: 'http://localhost:8080'
 };
 
 /*
