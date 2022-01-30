@@ -3,6 +3,8 @@ import {Subject} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Url} from './domain/Url';
+import {RedutorUrlService} from './app/service/redutor-url.service';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private service: EncurtadorUrlService,
+    private service: RedutorUrlService,
     private formBuilder: FormBuilder) {
   }
 
@@ -32,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
     })
   }
 
-  onClick(url: String) {
+  onClick(url: string) {
     console.log(this.urlForm);
     this.validaCampoUrl(this.urlForm);
     if (url) {
